@@ -15,4 +15,10 @@ export class FilmRepository implements IFilmRepository {
         this.filmRepo.save(film)
     }
 
+    async findById(filmId: string): Promise<Film | null> {
+        const film = await this.filmRepo.findOneBy({ id: filmId })
+        if (!film) return null
+        return film
+    }
+
 }
