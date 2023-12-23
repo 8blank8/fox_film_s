@@ -4,10 +4,12 @@ import { AppService } from './app.service';
 import { FilmModule } from './features/film/film.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
+import { CqrsModule } from '@nestjs/cqrs';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
+    CqrsModule,
     FilmModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
